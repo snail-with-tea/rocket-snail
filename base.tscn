@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cua6xiobq8px"]
+
+[ext_resource type="PackedScene" uid="uid://cy8scwa86m8br" path="res://snail.tscn" id="1_1b687"]
+
+[node name="Base" type="Node2D"]
+
+[node name="Snail" parent="." instance=ExtResource("1_1b687")]
+position = Vector2(270, 569)

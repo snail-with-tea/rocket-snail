@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cy8scwa86m8br"]
+
+[ext_resource type="Texture2D" uid="uid://bdhr3dvatkgln" path="res://snail.svg" id="1_3lqwr"]
+[ext_resource type="Texture2D" uid="uid://qt5mkdecy4dq" path="res://jetpack.svg" id="2_juqj5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gdm8i"]
+radius = 72.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_trmox"]
+radius = 26.0045
+height = 196.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yulsv"]
+radius = 17.7072
+height = 75.2866
+
+[node name="Snail" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3lqwr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-44, 8)
+texture = ExtResource("2_juqj5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(-28, 1)
+shape = SubResource("CircleShape2D_gdm8i")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 48)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_trmox")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(81, 32)
+rotation = -2.81755
+shape = SubResource("CapsuleShape2D_yulsv")

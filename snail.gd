@@ -14,9 +14,9 @@ func _ready():
 	speed = SPEED_BASE
 
 func _physics_process(delta):
-	speed+=log(time+1)*SPEED_BASE
+	speed=(log(time+1 )+1)*SPEED_BASE
 	time+=delta
-	
+	velocity.x=speed
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -24,5 +24,8 @@ func _physics_process(delta):
 	# Handle Jump.
 	if Input.is_action_pressed("jump"):
 		velocity.y = JUMP_VELOCITY
+		$Fireblast1.visible = true
+	else: 
+		$Fireblast1.visible = false 
 
 	move_and_slide()

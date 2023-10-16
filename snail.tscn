@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cy8scwa86m8br"]
+[gd_scene load_steps=8 format=3 uid="uid://cy8scwa86m8br"]
 
 [ext_resource type="Texture2D" uid="uid://bdhr3dvatkgln" path="res://snail.svg" id="1_3lqwr"]
 [ext_resource type="Script" path="res://snail.gd" id="1_t8aci"]
 [ext_resource type="Texture2D" uid="uid://qt5mkdecy4dq" path="res://jetpack.svg" id="2_juqj5"]
+[ext_resource type="Texture2D" uid="uid://n4qv1a17hvet" path="res://fireblast1.png" id="4_jwb55"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gdm8i"]
 radius = 72.0
@@ -39,3 +40,8 @@ shape = SubResource("CapsuleShape2D_trmox")
 position = Vector2(81, 32)
 rotation = -2.81755
 shape = SubResource("CapsuleShape2D_yulsv")
+
+[node name="Fireblast1" type="Sprite2D" parent="."]
+position = Vector2(-41, 140)
+scale = Vector2(0.214654, 0.214654)
+texture = ExtResource("4_jwb55")

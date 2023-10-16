@@ -28,4 +28,7 @@ func _physics_process(delta):
 	else: 
 		$Fireblast1.visible = false 
 
-	move_and_slide()
+	var collision = move_and_collide(velocity*delta)
+	if collision :
+		print("dead")
+		get_tree().paused = true

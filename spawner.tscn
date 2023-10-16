@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://lxbvr0rmmj4f"]
+
+[ext_resource type="Script" path="res://spawner.gd" id="1_pd7gn"]
+[ext_resource type="PackedScene" uid="uid://bmsky7fu0lfya" path="res://pipe.tscn" id="2_f60ye"]
+
+[node name="Spawner" type="Node2D"]
+script = ExtResource("1_pd7gn")
+pipe = ExtResource("2_f60ye")

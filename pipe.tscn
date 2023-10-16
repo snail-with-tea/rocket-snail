@@ -8,7 +8,7 @@ size = Vector2(90, 1019)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4iuu7"]
 size = Vector2(124, 68)
 
-[node name="Pipe" type="StaticBody2D"]
+[node name="Pipe" type="StaticBody2D" groups=["pipe"]]
 
 [node name="Pipe" type="Sprite2D" parent="."]
 position = Vector2(0, 509)

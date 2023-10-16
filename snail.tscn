@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cy8scwa86m8br"]
+[gd_scene load_steps=7 format=3 uid="uid://cy8scwa86m8br"]
 
 [ext_resource type="Texture2D" uid="uid://bdhr3dvatkgln" path="res://snail.svg" id="1_3lqwr"]
+[ext_resource type="Script" path="res://snail.gd" id="1_t8aci"]
 [ext_resource type="Texture2D" uid="uid://qt5mkdecy4dq" path="res://jetpack.svg" id="2_juqj5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gdm8i"]
@@ -15,6 +16,7 @@ radius = 17.7072
 height = 75.2866
 
 [node name="Snail" type="CharacterBody2D"]
+script = ExtResource("1_t8aci")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_3lqwr")

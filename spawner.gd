@@ -9,7 +9,7 @@ func _ready():
 
 
 func spawn_pipes():
-	var spacing = space * randf_range(0.9,1.1);
+	var spacing = space * randf_range(0.8,1.2);
 	var shift =tip * randf_range(-1.0,1.0)
 	
 	
@@ -34,7 +34,7 @@ func spawn_pipes():
 #	add_child(dn)
 
 
-func move(a):
+func move(_a):
 	self.position.x += 720
 	spawn_pipes()
 	print("hello")

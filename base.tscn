@@ -9,4 +9,4 @@
 position = Vector2(39, 572)
 
 [node name="Spawner" parent="." instance=ExtResource("2_xu3cb")]
-position = Vector2(601, 665)
+position = Vector2(600, 640)

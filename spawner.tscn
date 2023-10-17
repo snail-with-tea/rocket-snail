@@ -1,8 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://lxbvr0rmmj4f"]
+[gd_scene load_steps=4 format=3 uid="uid://lxbvr0rmmj4f"]
 
 [ext_resource type="Script" path="res://spawner.gd" id="1_pd7gn"]
 [ext_resource type="PackedScene" uid="uid://bmsky7fu0lfya" path="res://pipe.tscn" id="2_f60ye"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3kb0g"]
+size = Vector2(720, 1280)
+
 [node name="Spawner" type="Node2D"]
 script = ExtResource("1_pd7gn")
 pipe = ExtResource("2_f60ye")
+
+[node name="detector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detector"]
+shape = SubResource("RectangleShape2D_3kb0g")
+
+[connection signal="body_entered" from="detector" to="." method="move"]

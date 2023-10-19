@@ -1,16 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://cua6xiobq8px"]
+[gd_scene load_steps=10 format=3 uid="uid://cua6xiobq8px"]
 
 [ext_resource type="PackedScene" uid="uid://cy8scwa86m8br" path="res://snail.tscn" id="1_1b687"]
 [ext_resource type="Script" path="res://base.gd" id="1_lusc7"]
 [ext_resource type="PackedScene" uid="uid://lxbvr0rmmj4f" path="res://spawner.tscn" id="2_xu3cb"]
+[ext_resource type="PackedScene" uid="uid://px8rvaykiw8s" path="res://in_game_ui.tscn" id="4_rtmwp"]
+[ext_resource type="PackedScene" uid="uid://b3vsus7c03eet" path="res://pause.tscn" id="5_npgqf"]
+[ext_resource type="PackedScene" uid="uid://dr6md0jb2s8gu" path="res://death.tscn" id="6_ksh17"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tpvow"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_q7rbf"]
 normal = Vector2(0, 1)
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_owhbv"]
+normal = Vector2(1, 0)
+
 [node name="Base" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_lusc7")
+shift = 280
 
 [node name="Snail" parent="." instance=ExtResource("1_1b687")]
 position = Vector2(0, 640)
@@ -36,4 +44,21 @@ position = Vector2(0, -630)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/StaticBody2D2"]
 shape = SubResource("WorldBoundaryShape2D_q7rbf")
 
-[connection signal="dead" from="Snail" to="." method="restart"]
+[node name="StartArea" type="Area2D" parent="."]
+position = Vector2(360, 640)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartArea"]
+shape = SubResource("WorldBoundaryShape2D_owhbv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InGameUI" parent="CanvasLayer" instance=ExtResource("4_rtmwp")]
+
+[node name="Pause" parent="CanvasLayer" instance=ExtResource("5_npgqf")]
+visible = false
+
+[node name="Death" parent="CanvasLayer" instance=ExtResource("6_ksh17")]
+
+[connection signal="body_exited" from="StartArea" to="." method="start_area_exited"]

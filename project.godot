@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Rocket Snail"
-run/main_scene="res://base.tscn"
+run/main_scene="res://start.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SignalBus="*res://SignalBUS.gd"
 
 [display]
 

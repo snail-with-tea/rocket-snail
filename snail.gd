@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
 
-@export var SPEED_BASE = 300.0
-@export var JUMP_VELOCITY = -400.0
+@export var SPEED_BASE = 200.0
+@export var speed_add = 400.0
 
-signal dead
+@export var JUMP_VELOCITY = -400.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -23,8 +23,8 @@ func _ready():
 	speed = SPEED_BASE
 
 func _physics_process(delta):
-	multiplier = log(time + 1) + 1
-	speed=SPEED_BASE * multiplier
+	multiplier = 1-4/(time+4)
+	speed=SPEED_BASE + speed_add * multiplier
 	time+=delta
 	velocity.x=speed
 	# Add the gravity.
@@ -40,6 +40,5 @@ func _physics_process(delta):
 
 	var collision = move_and_collide(velocity*delta)
 	if collision :
-		print("dead")
-#		get_tree().paused = true
-		dead.emit()
+		SignalBus.dead = true
+		SignalBus.death.emit()

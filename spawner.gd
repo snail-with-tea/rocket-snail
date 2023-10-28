@@ -4,6 +4,8 @@ extends Node2D
 @export var space = 300
 @export var tip = 300
 
+@export var next_space = 720
+
 func spawn_pipes():
 	var spacing = space * randf_range(0.8,1.2);
 	var shift =tip * randf_range(-1.0,1.0)
@@ -54,7 +56,7 @@ func spawn_pipes():
 
 
 func move(_a: Node2D):
-	self.position.x += 720
+	self.position.x += next_space
 	spawn_pipes()
 
 func on_score(_a : Node2D):

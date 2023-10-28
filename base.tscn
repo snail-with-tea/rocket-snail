@@ -28,6 +28,7 @@ JUMP_VELOCITY = -550.0
 position = Vector2(600, 640)
 space = 400
 tip = 400
+next_space = 900
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 640)

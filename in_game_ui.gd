@@ -18,3 +18,7 @@ func on_score():
 func reset():
 	score = 0
 	label.text = "0"
+
+func _process(_delta):
+	if Input.is_action_just_pressed("restart") :
+		SignalBus.restart.emit()
